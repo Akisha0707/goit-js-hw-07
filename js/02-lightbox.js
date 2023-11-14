@@ -5,7 +5,6 @@ import { galleryItems } from "./gallery-items.js";
 const galleryList = document.querySelector(".gallery");
 
 galleryList.insertAdjacentHTML("beforeend", getClick(galleryItems));
-galleryList.addEventListener("click", getImages);
 
 function getClick(galleryItems) {
   return galleryItems
@@ -25,18 +24,10 @@ function getClick(galleryItems) {
     .join("");
 }
 
-function getImages(event) {
-  event.preventDefault();
-
-  if (event.target === event.currentTarget) {
-    return;
-  } else {
-    var lightbox = new SimpleLightbox(".gallery a", {
-      captionsData: "alt",
-      captionsPosition: "bottom",
-      captionDelay: 250,
-    });
-  }
-}
+const lightbox = new SimpleLightbox(".gallery a", {
+  captionsData: "alt",
+  captionsPosition: "bottom",
+  captionDelay: 250,
+});
 
 console.log(galleryItems);
